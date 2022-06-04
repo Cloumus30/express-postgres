@@ -14,5 +14,6 @@ app.get('/',(req,res)=>{
 
 app.listen(port,()=>{
     $url = process.env.APP_URL;
-    console.log(`server started : ${$url}:${port}`);
+    console.log(`server listen : ${$url}:${port}`);
 });
+
