@@ -1,6 +1,6 @@
 const query = `CREATE TABLE toko (
     id BIGSERIAL NOT NULL,
-    name varchar(255) NOT NULL,
+    nama varchar(255) NOT NULL,
     alamat varchar(255),
     account_id int,
     CONSTRAINT PK_toko PRIMARY KEY (id),
@@ -12,6 +12,7 @@ const tokoTable = {
 		try{
 				const res = await db.query(query);
 				console.log('Success: '+res.command+' toko table');
+                return res;
 		}catch(err){
 				console.log(err.message);
                 return err.message;
