@@ -8,16 +8,16 @@ const query = `CREATE TABLE accounts (
     CONSTRAINT PK_accounts PRIMARY KEY (id),
     CONSTRAINT UC_accounts UNIQUE(username,email)
 )`;
-const accountTable = {
-    up: (db)=>{
-        db.query(query,(err,res)=>{
-            if(err){
-                console.log(err.message);
+const  accountTable = {
+    up: async (db)=>{
+		try{
+				const res = await db.query(query);
+				console.log('Success: '+res.command+' accounts table');
+		}catch(err){
+				console.log(err.message);
                 return err.message;
-            }
-            console.log('Success: '+res.command+' accounts table');
-            db.end;
-        });
+
+		}
     }
 } 
 
